@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SplitSmart AI — split group expenses, track balances, and share settlements. Smart dashboards and insights for shared spending."
+    />
+    <meta property="og:title" content="SplitSmart AI" />
+    <meta
+      property="og:description"
+      content="Split group expenses, track balances, and share settlements with SplitSmart AI."
+    />
+    <meta property="og:type" content="website" />
+    <title>SplitSmart AI</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>" />
+
+    <!--
+      Firebase v10 modular SDK loaded as compat/esm via CDN.
+      We expose the modules as window globals so the lazy-init
+      function inside App.jsx / LoginPage can access them.
+    -->
+    <script type="module">
+      import { initializeApp }       from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import {
+        getAuth,
+        GoogleAuthProvider,
+        signInWithPopup,
+        onAuthStateChanged,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+      // Expose as globals so the non-module React bundle can access them
+      window.firebase_app  = { initializeApp };
+      window.firebase_auth = {
+        getAuth,
+        GoogleAuthProvider,
+        signInWithPopup,
+        onAuthStateChanged,
+        signOut,
+      };
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
